@@ -1,0 +1,10 @@
+fastapi
+uvicorn[standard]
+gunicorn
+sqlalchemy
+psycopg2-binary
+python-dotenv
+httpx
+pandas
+slowapi
+redis
