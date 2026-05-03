@@ -1,6 +1,6 @@
 ---
 title: PincodeIQ
-emoji: 🇮🇳
+emoji: 📮
 colorFrom: green
 colorTo: blue
 sdk: docker
@@ -41,9 +41,9 @@ pinned: false
 ## 🚀 Live Demo
 
 ```
-Base URL: https://pincodeiq.up.railway.app
-Docs:     https://pincodeiq.up.railway.app/docs
-Health:   https://pincodeiq.up.railway.app/health
+Base URL: https://vanshkapig-pincodeiq.hf.space
+Docs:     https://vanshkapig-pincodeiq.hf.space/docs
+Health:   https://vanshkapig-pincodeiq.hf.space/health
 ```
 
 ---
@@ -95,8 +95,8 @@ Health:   https://pincodeiq.up.railway.app/health
 ### 1. Clone the repo
 
 ```bash
-git clone https://github.com/yourusername/pincodeiq.git
-cd pincodeiq
+git clone https://github.com/vanshkapadia11/India-Pincode-API.git
+cd India-Pincode-API
 ```
 
 ### 2. Install dependencies
@@ -144,13 +144,13 @@ Open [http://localhost:8000/docs](http://localhost:8000/docs) 🎉
 All endpoints require an `X-API-Key` header.
 
 ```bash
-curl -H "X-API-Key: your_api_key" https://pincodeiq.up.railway.app/pincode/400001
+curl -H "X-API-Key: your_api_key" https://vanshkapig-pincodeiq.hf.space/pincode/400001
 ```
 
 Create your first key using the master key:
 
 ```bash
-curl -X POST https://pincodeiq.up.railway.app/keys/create \
+curl -X POST https://vanshkapig-pincodeiq.hf.space/keys/create \
   -H "X-API-Key: your_master_key" \
   -H "Content-Type: application/json" \
   -d '{"name": "myapp"}'
@@ -164,7 +164,7 @@ curl -X POST https://pincodeiq.up.railway.app/keys/create \
 
 ```bash
 curl -H "X-API-Key: pk_xxx" \
-  https://pincodeiq.up.railway.app/pincode/400001
+  https://vanshkapig-pincodeiq.hf.space/pincode/400001
 ```
 
 ```json
@@ -186,7 +186,7 @@ curl -H "X-API-Key: pk_xxx" \
 ### AI Address Parser
 
 ```bash
-curl -X POST https://pincodeiq.up.railway.app/ai/parse-address \
+curl -X POST https://vanshkapig-pincodeiq.hf.space/ai/parse-address \
   -H "X-API-Key: pk_xxx" \
   -H "Content-Type: application/json" \
   -d '{"address": "near bandra station mumbai 400050"}'
@@ -197,14 +197,14 @@ curl -X POST https://pincodeiq.up.railway.app/ai/parse-address \
   "extracted_pincode": "400050",
   "corrected_pincode": "400050",
   "ai_message": "Pincode extracted successfully.",
-  "details": { ... }
+  "details": { "...": "..." }
 }
 ```
 
 ### Bulk Lookup
 
 ```bash
-curl -X POST https://pincodeiq.up.railway.app/pincode/bulk \
+curl -X POST https://vanshkapig-pincodeiq.hf.space/pincode/bulk \
   -H "X-API-Key: pk_xxx" \
   -H "Content-Type: application/json" \
   -d '{"pincodes": ["400001", "110001", "560001"]}'
@@ -214,23 +214,19 @@ curl -X POST https://pincodeiq.up.railway.app/pincode/bulk \
 
 ```bash
 curl -H "X-API-Key: pk_xxx" \
-  "https://pincodeiq.up.railway.app/pincode/nearby/search?pincode=400001&km=10"
+  "https://vanshkapig-pincodeiq.hf.space/pincode/nearby/search?pincode=400001&km=10"
 ```
 
 ### Distance Between Pincodes
 
 ```bash
 curl -H "X-API-Key: pk_xxx" \
-  "https://pincodeiq.up.railway.app/pincode/distance/calculate?from_pincode=400001&to_pincode=110001"
+  "https://vanshkapig-pincodeiq.hf.space/pincode/distance/calculate?from_pincode=400001&to_pincode=110001"
 ```
 
 ```json
 {
-  "from_": {
-    "pincode": "400001",
-    "district": "Mumbai",
-    "state": "MAHARASHTRA"
-  },
+  "from_": { "pincode": "400001", "district": "Mumbai", "state": "MAHARASHTRA" },
   "to": { "pincode": "110001", "district": "Delhi", "state": "DELHI" },
   "distance_km": 1385.4,
   "distance_label": "1385.4 km"
@@ -249,7 +245,7 @@ curl -H "X-API-Key: pk_xxx" \
 | AI            | Google Gemini 2.5 Flash      |
 | Caching       | In-memory (Python)           |
 | Rate Limiting | SlowAPI                      |
-| Deployment    | Railway + Docker             |
+| Deployment    | Hugging Face Spaces + Docker |
 | Data Source   | India Post (154,797 records) |
 
 ---
@@ -282,7 +278,6 @@ pincodeiq/
 │   ├── import_data.py       # Import India Post CSV
 │   └── add_coordinates.py   # Add lat/lng via OpenStreetMap
 ├── Dockerfile
-├── railway.toml
 ├── requirements.txt
 └── .env
 ```
